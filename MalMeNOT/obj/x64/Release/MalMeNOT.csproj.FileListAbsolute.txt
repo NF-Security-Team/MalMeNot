@@ -1,0 +1,49 @@
+G:\Tools\MalMeNOT\MalMeNOT\bin\x64\Release\Databases\Commands.txt
+G:\Tools\MalMeNOT\MalMeNOT\bin\x64\Release\Databases\MD5-Malware.txt
+G:\Tools\MalMeNOT\MalMeNOT\bin\x64\Release\Databases\MD5-Whitelist.txt
+G:\Tools\MalMeNOT\MalMeNOT\bin\x64\Release\Components\procdump.exe
+G:\Tools\MalMeNOT\MalMeNOT\bin\x64\Release\ConfigFiles\AutostartKeys.txt
+G:\Tools\MalMeNOT\MalMeNOT\bin\x64\Release\ConfigFiles\Banned64Words.txt
+G:\Tools\MalMeNOT\MalMeNOT\bin\x64\Release\MalMeNOT.exe.config
+G:\Tools\MalMeNOT\MalMeNOT\bin\x64\Release\MalMeNOT.exe
+G:\Tools\MalMeNOT\MalMeNOT\bin\x64\Release\System.Management.Automation.dll
+G:\Tools\MalMeNOT\MalMeNOT\bin\x64\Release\Microsoft.Management.Infrastructure.dll
+G:\Tools\MalMeNOT\MalMeNOT\bin\x64\Release\System.Management.Automation.xml
+G:\Tools\MalMeNOT\MalMeNOT\obj\x64\Release\MalMeNOT.csprojAssemblyReference.cache
+G:\Tools\MalMeNOT\MalMeNOT\obj\x64\Release\MalMeNOT.csproj.CopyComplete
+G:\Tools\MalMeNOT\MalMeNOT\obj\x64\Release\MalMeNOT.exe
+C:\Users\Nicol\Documents\GitHub\MalMeNot\MalMeNOT\bin\x64\Release\Databases\Commands.txt
+C:\Users\Nicol\Documents\GitHub\MalMeNot\MalMeNOT\bin\x64\Release\Databases\MD5-Malware.txt
+C:\Users\Nicol\Documents\GitHub\MalMeNot\MalMeNOT\bin\x64\Release\Databases\MD5-Whitelist.txt
+C:\Users\Nicol\Documents\GitHub\MalMeNot\MalMeNOT\bin\x64\Release\Components\procdump.exe
+C:\Users\Nicol\Documents\GitHub\MalMeNot\MalMeNOT\bin\x64\Release\ConfigFiles\AutostartKeys.txt
+C:\Users\Nicol\Documents\GitHub\MalMeNot\MalMeNOT\bin\x64\Release\ConfigFiles\Banned64Words.txt
+C:\Users\Nicol\Documents\GitHub\MalMeNot\MalMeNOT\bin\x64\Release\MalMeNOT.exe.config
+C:\Users\Nicol\Documents\GitHub\MalMeNot\MalMeNOT\bin\x64\Release\MalMeNOT.exe
+C:\Users\Nicol\Documents\GitHub\MalMeNot\MalMeNOT\bin\x64\Release\System.Management.Automation.dll
+C:\Users\Nicol\Documents\GitHub\MalMeNot\MalMeNOT\bin\x64\Release\Microsoft.Management.Infrastructure.dll
+C:\Users\Nicol\Documents\GitHub\MalMeNot\MalMeNOT\bin\x64\Release\System.Management.Automation.xml
+C:\Users\Nicol\Documents\GitHub\MalMeNot\MalMeNOT\obj\x64\Release\MalMeNOT.csproj.CoreCompileInputs.cache
+C:\Users\Nicol\Documents\GitHub\MalMeNot\MalMeNOT\obj\x64\Release\MalMeNOT.csproj.CopyComplete
+C:\Users\Nicol\Documents\GitHub\MalMeNot\MalMeNOT\obj\x64\Release\MalMeNOT.exe
+C:\Users\Nicol\Documents\GitHub\MalMeNot\MalMeNOT\obj\x64\Release\MalMeNOT.csprojAssemblyReference.cache
+C:\Users\Nicol\Documents\GitHub\Code Realeases\MalMeNot\Databases\Commands.txt
+C:\Users\Nicol\Documents\GitHub\Code Realeases\MalMeNot\Databases\MD5-Malware.txt
+C:\Users\Nicol\Documents\GitHub\Code Realeases\MalMeNot\Databases\MD5-Whitelist.txt
+C:\Users\Nicol\Documents\GitHub\Code Realeases\MalMeNot\Components\procdump.exe
+C:\Users\Nicol\Documents\GitHub\Code Realeases\MalMeNot\ConfigFiles\AutostartKeys.txt
+C:\Users\Nicol\Documents\GitHub\Code Realeases\MalMeNot\ConfigFiles\Banned64Words.txt
+C:\Users\Nicol\Documents\GitHub\Code Realeases\MalMeNot\MalMeNOT.exe.config
+C:\Users\Nicol\Documents\GitHub\Code Realeases\MalMeNot\MalMeNOT.exe
+D:\GitHub\Code Realeases\MalMeNot\Databases\Commands.txt
+D:\GitHub\Code Realeases\MalMeNot\Databases\MD5-Malware.txt
+D:\GitHub\Code Realeases\MalMeNot\Databases\MD5-Whitelist.txt
+D:\GitHub\Code Realeases\MalMeNot\Components\procdump.exe
+D:\GitHub\Code Realeases\MalMeNot\ConfigFiles\AutostartKeys.txt
+D:\GitHub\Code Realeases\MalMeNot\ConfigFiles\Banned64Words.txt
+D:\GitHub\Code Realeases\MalMeNot\MalMeNOT.exe.config
+D:\GitHub\Code Realeases\MalMeNot\MalMeNOT.exe
+D:\GitHub\MalMeNot\MalMeNOT\obj\x64\Release\MalMeNOT.csproj.CoreCompileInputs.cache
+D:\GitHub\MalMeNot\MalMeNOT\obj\x64\Release\MalMeNOT.csproj.CopyComplete
+D:\GitHub\MalMeNot\MalMeNOT\obj\x64\Release\MalMeNOT.exe
+D:\GitHub\MalMeNot\MalMeNOT\obj\x64\Release\MalMeNOT.csprojAssemblyReference.cache

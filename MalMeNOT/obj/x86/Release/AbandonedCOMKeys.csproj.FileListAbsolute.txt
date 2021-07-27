@@ -1,0 +1,10 @@
+C:\Users\fasolo\Desktop\OffensiveCSharp-master\AbandonedCOMKeys\AbandonedCOMKeys\bin\Release\AbandonedCOMKeys.exe.config
+C:\Users\fasolo\Desktop\OffensiveCSharp-master\AbandonedCOMKeys\AbandonedCOMKeys\bin\Release\AbandonedCOMKeys.exe
+C:\Users\fasolo\Desktop\OffensiveCSharp-master\AbandonedCOMKeys\AbandonedCOMKeys\obj\x86\Release\AbandonedCOMKeys.csproj.CoreCompileInputs.cache
+C:\Users\fasolo\Desktop\OffensiveCSharp-master\AbandonedCOMKeys\AbandonedCOMKeys\obj\x86\Release\AbandonedCOMKeys.exe
+C:\Users\fasolo\Desktop\OffensiveCSharp-master\AbandonedCOMKeys\AbandonedCOMKeys\obj\x86\Release\AbandonedCOMKeys.csprojAssemblyReference.cache
+C:\Users\fasolo\Desktop\Nicolas\Tools\AbandonedCOMKeys\AbandonedCOMKeys\obj\x86\Release\AbandonedCOMKeys.csproj.CoreCompileInputs.cache
+C:\Users\fasolo\Desktop\Nicolas\Tools\AbandonedCOMKeys\AbandonedCOMKeys\bin\Release\MalMeNOT.exe.config
+C:\Users\fasolo\Desktop\Nicolas\Tools\AbandonedCOMKeys\AbandonedCOMKeys\bin\Release\MalMeNOT.exe
+C:\Users\fasolo\Desktop\Nicolas\Tools\AbandonedCOMKeys\AbandonedCOMKeys\obj\x86\Release\MalMeNOT.exe
+C:\Users\fasolo\Desktop\Nicolas\Tools\AbandonedCOMKeys\AbandonedCOMKeys\obj\x86\Release\AbandonedCOMKeys.csprojAssemblyReference.cache

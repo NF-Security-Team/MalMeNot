@@ -1,0 +1,6 @@
+C:\Users\fasolo\Desktop\Nicolas\Tools\AbandonedCOMKeys\AbandonedCOMKeys\obj\x86\Debug\AbandonedCOMKeys.csproj.CoreCompileInputs.cache
+C:\Users\fasolo\Desktop\Nicolas\Tools\AbandonedCOMKeys\AbandonedCOMKeys\bin\Debug\MalMeNOT.exe.config
+C:\Users\fasolo\Desktop\Nicolas\Tools\AbandonedCOMKeys\AbandonedCOMKeys\bin\Debug\MalMeNOT.exe
+C:\Users\fasolo\Desktop\Nicolas\Tools\AbandonedCOMKeys\AbandonedCOMKeys\bin\Debug\MalMeNOT.pdb
+C:\Users\fasolo\Desktop\Nicolas\Tools\AbandonedCOMKeys\AbandonedCOMKeys\obj\x86\Debug\MalMeNOT.exe
+C:\Users\fasolo\Desktop\Nicolas\Tools\AbandonedCOMKeys\AbandonedCOMKeys\obj\x86\Debug\MalMeNOT.pdb

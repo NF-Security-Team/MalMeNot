@@ -1,0 +1,16 @@
+D:\GitHub\MalMeNot\MalMeNOT\bin\x64\Debug\Databases\Commands.txt
+D:\GitHub\MalMeNot\MalMeNOT\bin\x64\Debug\Databases\MD5-Malware.txt
+D:\GitHub\MalMeNot\MalMeNOT\bin\x64\Debug\Databases\MD5-Whitelist.txt
+D:\GitHub\MalMeNot\MalMeNOT\bin\x64\Debug\Components\procdump.exe
+D:\GitHub\MalMeNot\MalMeNOT\bin\x64\Debug\ConfigFiles\AutostartKeys.txt
+D:\GitHub\MalMeNot\MalMeNOT\bin\x64\Debug\ConfigFiles\Banned64Words.txt
+D:\GitHub\MalMeNot\MalMeNOT\bin\x64\Debug\MalMeNOT.exe.config
+D:\GitHub\MalMeNot\MalMeNOT\bin\x64\Debug\MalMeNOT.exe
+D:\GitHub\MalMeNot\MalMeNOT\bin\x64\Debug\MalMeNOT.pdb
+D:\GitHub\MalMeNot\MalMeNOT\bin\x64\Debug\System.Management.Automation.dll
+D:\GitHub\MalMeNot\MalMeNOT\bin\x64\Debug\Microsoft.Management.Infrastructure.dll
+D:\GitHub\MalMeNot\MalMeNOT\bin\x64\Debug\System.Management.Automation.xml
+D:\GitHub\MalMeNot\MalMeNOT\obj\x64\Debug\MalMeNOT.csproj.CoreCompileInputs.cache
+D:\GitHub\MalMeNot\MalMeNOT\obj\x64\Debug\MalMeNOT.csproj.CopyComplete
+D:\GitHub\MalMeNot\MalMeNOT\obj\x64\Debug\MalMeNOT.exe
+D:\GitHub\MalMeNot\MalMeNOT\obj\x64\Debug\MalMeNOT.pdb
