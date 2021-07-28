@@ -15,7 +15,7 @@ USE CASES:
 
 
 WHAT'S LEFT TO DO
-1) Add more logs to gather
+1) Add more methods to gather useful data
 2) Optimize the code execution speed
 3) Optimize the file retrieving methods
 4) Anything useful during IR
