@@ -19,3 +19,4 @@ WHAT'S LEFT TO DO
 2) Optimize the code execution speed
 3) Optimize the file retrieving methods
 4) Anything useful during IR
+5) ...many more stuff
