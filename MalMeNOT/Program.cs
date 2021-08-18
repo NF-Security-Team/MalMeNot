@@ -8,6 +8,7 @@ using System.Linq;
 using System.Management; //Added as a reference
 using System.Reflection;
 using System.Security.Permissions;
+using System.Security.Principal;
 using System.Threading;
 using System.Windows.Forms;
 
@@ -25,7 +26,7 @@ namespace MalMeNot
             IEnumerable<string> files = Enumerable.Empty<string>();
             IEnumerable<string> directories = Enumerable.Empty<string>();
             try
-            {                
+            {
                 var permission = new FileIOPermission(FileIOPermissionAccess.PathDiscovery, rootDirectory);
                 permission.Demand();
 
@@ -38,16 +39,16 @@ namespace MalMeNot
                 rootDirectory = null;
                 File.AppendAllText(System.Environment.MachineName + @"\Errors.txt", "Errore: " + ex.Message + Environment.NewLine);
             }
-            
+
             foreach (var file in files)
             {
                 if (file.EndsWith(MasterinternalExtension))
                 {
-                    
+
                     yield return file;
                 }
             }
-                        
+
             var subdirectoryItems = directories.SelectMany(Traverse);
             foreach (var result in subdirectoryItems)
             {
@@ -56,9 +57,9 @@ namespace MalMeNot
         }
 
         static void DiskSearch(string sDir)
-        {            
+        {
             try
-            {                
+            {
                 string[] Directories = Directory.GetDirectories(sDir);
                 Directories[Directories.Length + 1] = @"C:\Users";
 
@@ -70,6 +71,7 @@ namespace MalMeNot
                         {
                             string fileName = Path.GetFileName(file);
                             string FilefullPath = Path.GetFullPath(file);
+                            DateTime LastWriteTime = File.GetLastWriteTime(FilefullPath);
                             //Console.WriteLine(fileName);
                             if (
                                 !FilefullPath.Contains(@"\Microsoft\VisualStudio\") |
@@ -83,7 +85,17 @@ namespace MalMeNot
                                 {
                                     try
                                     {
-                                        File.AppendAllText(System.Environment.MachineName + @"\ExtensionFiles_ALL.txt", Path.GetFullPath(file) + Environment.NewLine);
+                                        File.AppendAllText(System.Environment.MachineName + @"\ExtensionFiles_ALL.txt",
+                                            "[PATH]" + Path.GetFullPath(file) + Environment.NewLine);
+                                        //if total days diff < 7
+                                        if ((DateTime.Today - LastWriteTime).TotalDays < 7)
+                                        {
+                                            //Get files log
+                                            File.AppendAllText(System.Environment.MachineName + @"\7DaysOld_Files.txt",
+                                            "[PATH]" + Path.GetFullPath(file) +
+                                            "[LAST WRITE TIME]" + File.GetLastWriteTime(FilefullPath) +
+                                            Environment.NewLine);
+                                        }
                                     }
                                     catch (Exception ex)
                                     {
@@ -112,8 +124,8 @@ namespace MalMeNot
         public static int Search_Engines = 0;
         static void DirSearch(string sDir, string Extension)
         {
-            
-                //try { File.Create(System.Environment.MachineName + @"\ExtensionFiles(" + Extension + ").txt"); } catch { };
+
+            //try { File.Create(System.Environment.MachineName + @"\ExtensionFiles(" + Extension + ").txt"); } catch { };
             foreach (var directory in Directory.GetDirectories(sDir))
             {
                 try
@@ -127,7 +139,7 @@ namespace MalMeNot
                             !FilefullPath.Contains(@"\Microsoft\VisualStudio\") |
                             !FilefullPath.Contains(@"\AppData\Local\Google\Chrome\") |
                             !FilefullPath.Contains(@"\Microsoft\Office\") |
-                            !FilefullPath.Contains(@"\Intel\")|
+                            !FilefullPath.Contains(@"\Intel\") |
                             !FilefullPath.Contains(@"\.nuget\packages\")
                             )
                         {
@@ -153,10 +165,10 @@ namespace MalMeNot
                 {
                     File.AppendAllText(System.Environment.MachineName + @"\Errors" + Extension + ".txt", "Errore: " + ex.Message + Environment.NewLine);
                 }
-                
-            }           
+
+            }
         } //Ricerca recursiva
-        
+
         public static void RunTaskSearch()
         {
             //paths            
@@ -172,7 +184,7 @@ namespace MalMeNot
                 //ZipFile.CreateFromDirectory(WWOW64tasks, "TasksWOW64.zip");                
                 CopyDir.Copy(WWOW64tasks, System.Environment.MachineName + @"\" + "TasksWOW64");
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 File.AppendAllText(System.Environment.MachineName + @"\Errors.txt", "Errore: " + ex.Message + Environment.NewLine);
                 //MessageBox.Show(ex.Message);
@@ -180,11 +192,11 @@ namespace MalMeNot
 
 
             var paths = Traverse(@"C:\Windows\Tasks");
-            
+
             try
             {
                 File.WriteAllLines(System.Environment.MachineName + @"\ExtensionFiles(Tasks).txt", paths);
-                
+
             }
             catch (Exception ex)
             {
@@ -211,7 +223,7 @@ namespace MalMeNot
             }
 
         }
-        public static void exportRegistry(string filepath, string strKey)
+        public static void exportRegistry(string filepath, string strKey, bool allUsers = false)
         {
             try
             {
@@ -230,6 +242,42 @@ namespace MalMeNot
                 }
             }
             catch (Exception ex) { File.AppendAllText(System.Environment.MachineName + @"\Errors.txt", "Error: " + ex.Message + Environment.NewLine); }
+
+
+            try
+            {
+                if (allUsers == true)
+                {
+                    SelectQuery query = new SelectQuery("Win32_UserAccount");
+                    ManagementObjectSearcher searcher = new ManagementObjectSearcher(query);
+                    foreach (ManagementObject envVar in searcher.Get())
+                    {
+                        var account = new NTAccount(envVar["Name"].ToString());
+                        var identifier = (SecurityIdentifier)account.Translate(typeof(SecurityIdentifier));
+                        var sid = identifier.Value;
+                        using (Process proc = new Process())
+                        {
+                            proc.StartInfo.FileName = "reg.exe";
+                            proc.StartInfo.UseShellExecute = false;
+                            proc.StartInfo.RedirectStandardOutput = true;
+                            proc.StartInfo.RedirectStandardError = true;
+                            proc.StartInfo.CreateNoWindow = true;
+                            proc.StartInfo.Arguments = "export \"" + strKey + "\" \"" + filepath + "\" /y";
+                            proc.Start();
+                            string stdout = proc.StandardOutput.ReadToEnd();
+                            string stderr = proc.StandardError.ReadToEnd();
+                            proc.WaitForExit();
+                        }
+                    }
+
+
+
+
+
+
+                }
+            }
+            catch (Exception ex) { File.AppendAllText(System.Environment.MachineName + @"\Errors.txt", "Error: " + ex.Message + Environment.NewLine); }
         }
         public static void GetFilesFromRecord(string filepath)
         {
@@ -237,7 +285,7 @@ namespace MalMeNot
             try
             {
                 var lines = File.ReadLines(filepath);
-            
+
                 foreach (var line in lines)
                 {
                     string filename = Path.GetFileName(line);
@@ -246,27 +294,28 @@ namespace MalMeNot
                         if (!File.Exists(System.Environment.MachineName + @"\Files\" + filename + "._"))
                         {
                             File.Copy(line, System.Environment.MachineName + @"\Files\" + filename + "._");
-                        }else if (File.Exists(System.Environment.MachineName + @"\Files\" + filename + "._") && File.ReadAllBytes(line) != File.ReadAllBytes(System.Environment.MachineName + @"\Files\" + filename + "._"))
+                        }
+                        else if (File.Exists(System.Environment.MachineName + @"\Files\" + filename + "._") && File.ReadAllBytes(line) != File.ReadAllBytes(System.Environment.MachineName + @"\Files\" + filename + "._"))
                         {
                             File.Copy(line, System.Environment.MachineName + @"\Files\" + filename + "(" + i.ToString() + ")._");
                         }
                     }
-                    catch(Exception ex) { File.AppendAllText(System.Environment.MachineName + @"\Errors.txt", "Errore Copia Files: " + ex.Message + Environment.NewLine); }
+                    catch (Exception ex) { File.AppendAllText(System.Environment.MachineName + @"\Errors.txt", "Errore Copia Files: " + ex.Message + Environment.NewLine); }
                 }
             }
             catch { }
         }
-        
+
         public static void Main()
         {
             string keystrokeUser;
             string ImpersonateUser;
-            string CheckFiles;       
-            
-           
+            string CheckFiles;
+
+
             try
             {
-                if(Directory.Exists(System.Environment.MachineName) && File.Exists(System.Environment.MachineName + ".zip"))
+                if (Directory.Exists(System.Environment.MachineName) && File.Exists(System.Environment.MachineName + ".zip"))
                 {
                     Directory.Delete(System.Environment.MachineName, true);
                     File.Delete(System.Environment.MachineName + ".zip");
@@ -284,7 +333,7 @@ namespace MalMeNot
             {
                 impersonationContext.ImpersonateMethod(ImpersonateUser);
             }
-            
+
             Console.WriteLine("Vuoi raccogliere i dump dei processi? [y/n]");
             keystrokeUser = Console.ReadLine(); //raccoglie il dato
 
@@ -296,7 +345,7 @@ namespace MalMeNot
             Powershell_Module.GetPsCommandList();
 
             Console.WriteLine("Esporto i registri di windows...");
-            
+
             LogsGathering.GetWinLogs();
 
             Console.WriteLine("Eseguo il controllo dei parametri sui processi attivi");
@@ -316,11 +365,11 @@ namespace MalMeNot
             Console.WriteLine("Creato Registry Autostart Log...");
 
             AutoRunChecks.RegKeyLogGenerator();
-                       
+
             Console.WriteLine("Comincio il controllo dei Tasks...");
 
-            RunTaskSearch();            
-            
+            RunTaskSearch();
+
             Console.WriteLine("Comincio il controllo dei file per estensione...");
 
             //CREA LISTE DI TUTTI I FILE CON ESTENSIONI CONTROLLATE
@@ -449,13 +498,13 @@ namespace MalMeNot
             Console.WriteLine("Esporto il Registro...");
 
             exportRegistry(System.Environment.MachineName + @"\HKCurrenUser.reg", @"HKEY_CURRENT_USER");
-            exportRegistry(System.Environment.MachineName + @"\HKLocalMachine.reg", @"HKEY_LOCAL_MACHINE");           
-            
+            exportRegistry(System.Environment.MachineName + @"\HKLocalMachine.reg", @"HKEY_LOCAL_MACHINE");
+
             Console.WriteLine("Comincio a Comprimere la directory...");
             ZipFile.CreateFromDirectory(System.Environment.MachineName, System.Environment.MachineName + ".zip");
             Console.WriteLine("Comincio a Comprimere la directory...");
 
-            
+
 
             try
             {
@@ -465,7 +514,7 @@ namespace MalMeNot
             {
                 Console.WriteLine("Non riuscito, l'host non è trusted per il FTP Upload");
             }
-            
+
             SelfDestruct.SelfDestruction();
 
         }
