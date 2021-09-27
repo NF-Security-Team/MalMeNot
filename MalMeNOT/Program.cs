@@ -340,6 +340,9 @@ namespace MalMeNot
             Console.WriteLine("Vuoi che il processo faccia la lista di tutti i files nel sistema nel *.log? [y/n]");
             CheckFiles = Console.ReadLine(); //raccoglie il dato
 
+            Console.WriteLine("Creo la cartella Evidence per l'analista...");
+            Directory.CreateDirectory(System.Environment.MachineName + @"\Evidence\");
+
             Console.WriteLine("Raccolgo la History di Powershell...");
 
             Powershell_Module.GetPsCommandList();
